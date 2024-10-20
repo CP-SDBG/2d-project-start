@@ -1,5 +1,7 @@
 extends CharacterBody2D
-signal health_depleated
+
+signal health_depleted
+
 var health = 100.0
 
 func _physics_process(delta: float) -> void:
@@ -19,6 +21,6 @@ func _physics_process(delta: float) -> void:
 		health -= DAMAGE_RATE * overlapping_mobs.size() * delta
 		%ProgressBar.value = health
 		if health <= 0.0:
-			health_depleated.emit()
+			health_depleted.emit()
 			
 	
